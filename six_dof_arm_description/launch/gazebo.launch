@@ -1,0 +1,22 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="true"/>
+  </include>
+
+  <group ns="/six_dof_arm">
+
+    <param name="robot_description" textfile="$(find six_dof_arm_description)/urdf/six_dof_arm.urdf"/>
+
+    <node 
+    name="spawn_gazebo_model" 
+    pkg="gazebo_ros" 
+    type="spawn_model" 
+    args="-urdf -param robot_description -model six_dof_arm -x 0 -y 0 -z 0"
+    />
+
+    <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  </group>
+</launch>

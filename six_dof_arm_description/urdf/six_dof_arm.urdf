@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="six_dof_arm">
+
+  <link name="world"/>
+  <joint name="world_to_base" type="fixed">
+  <parent link="world"/>
+  <child link="base_link"/>
+  </joint>
+  <!-- ================================== bl ================================== -->
+  <link
+    name="base_link">
+    <!-- ============================================= OG ================ -->
+    <inertial>
+      <origin
+        xyz="0.0030404383928407 0.0904610846598891 0.000313504501162996"
+        rpy="0 0 0" />
+      <mass
+        value="2.17387509158524" />
+      <inertia
+        ixx="0.00596956325220107"
+        ixy="-7.23777863509948E-07"
+        ixz="-3.38216714723813E-06"
+        iyy="0.00952386374829906"
+        iyz="-7.3243407230227E-08"
+        izz="0.00600257170950743" />
+        <!-- <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001" /> -->
+    </inertial>
+<!-- ============================================================================================= -->
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <!-- ================================== l2 ==================================== -->
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="0.00107284064142489 0.0675264045015751 -0.0669970111009438"
+        rpy="0 0 0" />
+      <mass
+        value="1.18912500313445" />
+      <inertia
+        ixx="0.00147658022225759"
+        ixy="8.59873599046001E-07"
+        ixz="7.94056013515976E-08"
+        iyy="0.00185247956000573"
+        iyz="-1.39402251722092E-05"
+        izz="0.00235601012756757" />
+
+         <!-- <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001" /> -->
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <!-- ============================= j1 =========================================== -->
+  <joint
+    name="j1"
+    type="continuous">
+    <origin
+      xyz="0 0 0.174686006315903"
+      rpy="1.5707963267949 0.0426156296068228 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0.0426027317948625 -0.999092091472861 0" />
+    <limit effort="100" velocity="3"/>
+    <dynamic friction="0.5" damping="0.5"/>
+  </joint>
+  <!-- ================================ l3 ==================================== -->
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="0.0114236744744287 0.163399177403567 0.0261078392809295"
+        rpy="0 0 0" />
+      <mass
+        value="1.14306189360077" />
+      <inertia
+        ixx="0.0058762414532403"
+        ixy="-0.00035405925519153"
+        ixz="-3.56419473090773E-06"
+        iyy="0.00083768556654117"
+        iyz="-5.08217739651121E-05"
+        izz="0.00652044652059366" />
+
+        <!-- <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001" /> -->
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <!-- =============================== j2 =============================== -->
+  <joint
+    name="j2"
+    type="continuous">
+    <origin
+      xyz="-0.0038731844893234 0.0908314520939947 0"
+      rpy="0 0 0.0970316625818105" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort="100" velocity="3"/>
+    <dynamic friction="0.5" damping="0.5"/>
+  </joint>
+  <!-- ================================== l4 ======================================== -->
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="0.0193236988403798 0.07732959703128 -0.000549395513287365"
+        rpy="0 0 0" />
+      <mass
+        value="0.61252980030284" />
+      <inertia
+        ixx="0.000462649927544659"
+        ixy="-1.64393565413698E-07"
+        ixz="-2.00261054234078E-06"
+        iyy="0.000462030357419234"
+        iyz="-7.96467154491412E-06"
+        izz="0.000794707591888277" />
+
+      <!-- <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001" /> -->
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <!-- ============================= j3 =================================== -->
+  <joint
+    name="j3"
+    type="continuous">
+    <origin
+      xyz="0.0168940922077327 0.241596753679048 0.0825666966679422"
+      rpy="1.57079632679489 -0.244898727708224 3.07346880235245" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0.242458075514665 0.970161884232588 0" />
+    <limit effort="100" velocity="3"/>
+    <dynamic friction="0.5" damping="0.5"/>
+  </joint>
+  <!-- ================================== l5 =============================== -->
+  <link
+    name="link5">
+    <inertial>
+      <origin
+        xyz="-3.17124127398871E-05 0.102065429293058 -0.0247359805949385"
+        rpy="0 0 0" />
+      <mass
+        value="0.421807198945127" />
+      <inertia
+        ixx="0.00152671792744635"
+        ixy="-6.57625180718517E-07"
+        ixz="-4.70040935086078E-09"
+        iyy="0.000301057192083679"
+        iyz="0.000151301712593328"
+        izz="0.00164383945946938" />
+
+      <!-- <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001" /> -->
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <!-- ================================== j4 ================================ -->
+  <joint
+    name="j4"
+    type="continuous">
+    <origin
+      xyz="0.0213489938284647 0.0854249957858847 0.0409204327532362"
+      rpy="1.57079632679489 0 0.988449271710427" />
+    <parent
+      link="link4" />
+    <child
+      link="link5" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="100" velocity="3"/>
+    <dynamic friction="0.5" damping="0.5"/>
+  </joint>
+  <!-- ================================ l6 ================================ -->
+  <link
+    name="link6">
+    <inertial>
+      <origin
+        xyz="-0.0556558937182977 -0.0461132946915521 -0.0710677455670224"
+        rpy="0 0 0" />
+      <mass
+        value="0.215680416600799" />
+      <inertia
+        ixx="0.000198781942718578"
+        ixy="6.69115319269877E-07"
+        ixz="-5.98891372297362E-06"
+        iyy="0.000198528715740285"
+        iyz="-4.96211948057244E-06"
+        izz="8.50577011664286E-05" />
+
+      <!-- <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001" /> -->
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <!-- ================================== j5 =============================================== -->
+  <joint
+    name="j5"
+    type="continuous">
+    <origin
+      xyz="0 0.189079567246762 0.00454807694118021"
+      rpy="1.5707963267949 -0.878892097653013 -0.0204270299568086" />
+    <parent
+      link="link5" />
+    <child
+      link="link6" />
+    <axis
+      xyz="0.770032504774587 0.638004656401954 0" />
+    <limit effort="100" velocity="3"/>
+    <dynamic friction="0.5" damping="0.5"/>
+  </joint>
+  <!-- ================================== end_eff ====================================== -->
+  <!-- <link
+    name="end_eff">
+    <inertial>
+      <origin
+        xyz="4.85722573273506E-16 0.00961333296810962 -3.05311331771918E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.0207904558451663" />
+      <inertia
+        ixx="6.15415573695005E-06"
+        ixy="-1.98523347012727E-23"
+        ixz="2.11758236813575E-21"
+        iyy="7.27907189246373E-06"
+        iyz="7.94093388050907E-23"
+        izz="4.00067538234834E-06" /> -->
+
+      <!-- <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001" /> -->
+    <!-- </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/end_eff.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://six_dof_arm_description/meshes/end_eff.STL" />
+      </geometry>
+    </collision>
+  </link> -->
+  <!-- ==================================== j6 ==================================== -->
+  <!-- <joint
+    name="j6"
+    type="continuous">
+    <origin
+      xyz="-0.058334 -0.048332 -0.20453"
+      rpy="-1.5708 0 -0.18829" />
+    <parent
+      link="link6" />
+    <child
+      link="end_eff" />
+    <axis
+      xyz="0 1 0" />
+  </joint> -->
+
+
+<transmission name="trans_j1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j4_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_j5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j5">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j5_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!-- <transmission name="trans_j6">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="j6">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="j6_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission> -->
+
+<!-- ==================================== GAZEBO TAGS ======================================= -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/six_dof_arm</robotNamespace>
+            <robotParam>six_dof_arm/robot_description</robotParam>
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="base_link">
+        <mu1>0.01</mu1>
+        <mu2>0.01</mu2>
+        <material>Gazebo/Gray</material>
+        <selfCollide>true</selfCollide>
+        <gravity>true</gravity>
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <gazebo reference="link2">
+        <mu1>0.01</mu1>
+        <mu2>0.01</mu2>
+        <material>Gazebo/White</material>
+        <selfCollide>true</selfCollide>
+        <gravity>true</gravity>
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <gazebo reference="link3">
+        <mu1>0.01</mu1>
+        <mu2>0.01</mu2>
+        <material>Gazebo/Gray</material>
+        <selfCollide>true</selfCollide>
+        <gravity>true</gravity>
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <gazebo reference="link4">
+        <mu1>0.01</mu1>
+        <mu2>0.01</mu2>
+        <material>Gazebo/White</material>
+        <selfCollide>true</selfCollide>
+        <gravity>true</gravity>
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <gazebo reference="link5">
+        <mu1>0.01</mu1>
+        <mu2>0.01</mu2>
+        <material>Gazebo/Blue</material>
+        <selfCollide>true</selfCollide>
+        <gravity>true</gravity>
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <gazebo reference="link6">
+        <mu1>0.01</mu1>
+        <mu2>0.01</mu2>
+        <material>Gazebo/Gray</material>
+        <selfCollide>true</selfCollide>
+        <gravity>true</gravity>
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <!-- <gazebo reference="end_eff">
+        <mu1>0.01</mu1>
+        <mu2>0.01</mu2>
+        <material>Gazebo/White</material>
+        <selfCollide>true</selfCollide>
+        <gravity>true</gravity>
+        <minDepth>0.01</minDepth>
+    </gazebo> -->
+
+</robot>
